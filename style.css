@@ -2017,10 +2017,30 @@ a.footer__contact:hover .footer__contact-icon {
   .footer__grid {
     grid-template-columns: 1fr 1fr;
     gap: var(--s-xl);
+    text-align: center;
   }
 
   .footer__brand {
     grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer__col {
+    align-items: center;
+  }
+
+  .footer__desc {
+    text-align: center;
+  }
+
+  .footer__contact {
+    justify-content: center;
+  }
+
+  .footer__socials {
+    justify-content: center;
   }
 
   .footer__bottom {
