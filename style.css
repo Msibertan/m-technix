@@ -4759,6 +4759,20 @@ a.footer__contact:hover .footer__contact-icon {
   grid-template-columns: repeat(3, 1fr);
 }
 
+.bento-card--span2 {
+  grid-column: span 2;
+}
+
+/* About page timeline grid */
+.about-timeline {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--s-md);
+  margin-top: var(--s-sm);
+  padding-top: var(--s-sm);
+  border-top: 1px solid var(--c-border);
+}
+
 .bento-card__title strong {
   display: inline;
   font-weight: 700;
@@ -4883,6 +4897,14 @@ a.footer__contact:hover .footer__contact-icon {
   }
 
   .bento-grid--trio {
+    grid-template-columns: 1fr;
+  }
+
+  .bento-card--span2 {
+    grid-column: auto;
+  }
+
+  .about-timeline {
     grid-template-columns: 1fr 1fr;
   }
 
