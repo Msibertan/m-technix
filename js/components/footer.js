@@ -33,7 +33,7 @@ export function renderFooter() {
           <a href="mailto:mtehnics@mail.ru" class="footer__link">mtehnics@mail.ru</a>
           <div class="footer__socials">
             <a href="https://wa.me/79390349133" target="_blank" rel="noopener" class="footer__social" aria-label="WhatsApp"><i data-lucide="message-circle"></i></a>
-            <a href="https://t.me/+79390349133" target="_blank" rel="noopener" class="footer__social" aria-label="Telegram"><i data-lucide="send"></i></a>
+            <a href="https://t.me/OOO_M_Technics" target="_blank" rel="noopener" class="footer__social" aria-label="Telegram"><i data-lucide="send"></i></a>
           </div>
         </div>
       </div>
