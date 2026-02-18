@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Услуги — М-Техникс</title>
+    <meta name="description"
+        content="Полный спектр услуг по автопригону из Европы: подбор, проверка, доставка, растаможка и постановка на учёт." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress">
+        <div class="scroll-progress__fill" id="scrollProgress"></div>
+    </div>
+
+    <!-- Page Hero -->
+    <section class="page-hero page-hero--dark page-hero--extended">
+        <div class="container">
+            <div class="page-hero__content" data-reveal>
+                <span class="section__label">Услуги</span>
+                <h1 class="page-hero__title">Полный спектр услуг<br />по автопригону из Европы</h1>
+                <p class="page-hero__subtitle">От подбора автомобиля на европейских площадках до постановки на учёт в
+                    ГИБДД — берём на себя все этапы</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hero Divider -->
+
+
+    <!-- Services Detail -->
+    <section class="section" style="position: relative;">
+        <!-- Decorative dots -->
+        <svg class="deco-dots deco-dots--left" width="120" height="120">
+            <pattern id="dots-svc-l" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <circle cx="2" cy="2" r="2" fill="currentColor" />
+            </pattern>
+            <rect width="120" height="120" fill="url(#dots-svc-l)" />
+        </svg>
+        <div class="container">
+            <div class="services-detail">
+
+                <div class="service-detail" data-reveal>
+                    <img src="/images/search-europe.jpg" alt="Подбор авто на европейских площадках"
+                        class="service-detail__img" loading="lazy" />
+                    <div class="service-detail__body">
+                        <div class="service-detail__icon"><i data-lucide="search"></i></div>
+                        <h2 class="service-detail__title">Подбор авто в Европе</h2>
+                        <p class="service-detail__text">Мы ищем автомобиль на проверенных европейских площадках:
+                            Mobile.de, AutoScout24, аукционы Copart, BCA и другие. Учитываем ваш бюджет, предпочтения по
+                            марке и комплектации. Предоставляем несколько вариантов на выбор с полным описанием и
+                            фотографиями.</p>
+                        <ul class="service-detail__list">
+                            <li><i data-lucide="check"></i> Поиск на проверенных площадках</li>
+                            <li><i data-lucide="check"></i> Учёт всех ваших пожеланий</li>
+                            <li><i data-lucide="check"></i> Несколько вариантов на выбор</li>
+                            <li><i data-lucide="check"></i> Полная информация о каждом авто</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-detail service-detail--reverse" data-reveal>
+                    <img src="/images/car-inspection.jpg" alt="Проверка и диагностика автомобиля"
+                        class="service-detail__img" loading="lazy" />
+                    <div class="service-detail__body">
+                        <div class="service-detail__icon"><i data-lucide="scan-search"></i></div>
+                        <h2 class="service-detail__title">Проверка и диагностика</h2>
+                        <p class="service-detail__text">Каждый автомобиль проходит тщательную проверку: техническое
+                            состояние, наличие повреждений, история обслуживания, юридическая чистота. Мы проверяем VIN
+                            по международным базам, сканируем электронику и делаем полный фотоотчёт.</p>
+                        <ul class="service-detail__list">
+                            <li><i data-lucide="check"></i> Проверка VIN по всем базам</li>
+                            <li><i data-lucide="check"></i> Диагностика двигателя и АКПП</li>
+                            <li><i data-lucide="check"></i> Проверка лакокрасочного покрытия</li>
+                            <li><i data-lucide="check"></i> Подробный фото/видео отчёт</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-detail" data-reveal>
+                    <img src="/images/car-loading.jpg" alt="Доставка автомобиля автовозом" class="service-detail__img"
+                        loading="lazy" />
+                    <div class="service-detail__body">
+                        <div class="service-detail__icon"><i data-lucide="ship"></i></div>
+                        <h2 class="service-detail__title">Доставка и растаможка</h2>
+                        <p class="service-detail__text">Организуем логистику автовозом или на платформе. Берём на себя
+                            все таможенные процедуры: подготовка документов, оплата пошлин, утилизационный сбор,
+                            получение ЭПТС. Вам не нужно беспокоиться ни о чём.</p>
+                        <ul class="service-detail__list">
+                            <li><i data-lucide="check"></i> Транспортировка автовозом</li>
+                            <li><i data-lucide="check"></i> Полное таможенное оформление</li>
+                            <li><i data-lucide="check"></i> Получение ЭПТС</li>
+                            <li><i data-lucide="check"></i> Страхование на время перевозки</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-detail service-detail--reverse" data-reveal>
+                    <img src="/images/customs-docs.jpg" alt="Постановка на учёт и оформление документов"
+                        class="service-detail__img" loading="lazy" />
+                    <div class="service-detail__body">
+                        <div class="service-detail__icon"><i data-lucide="file-check-2"></i></div>
+                        <h2 class="service-detail__title">Постановка на учёт</h2>
+                        <p class="service-detail__text">Сопровождаем на всех этапах регистрации: от получения номеров до
+                            оформления ОСАГО. Помогаем пройти техосмотр и решить любые вопросы с документами. Вы
+                            получаете полностью готовый к эксплуатации автомобиль.</p>
+                        <ul class="service-detail__list">
+                            <li><i data-lucide="check"></i> Регистрация в ГИБДД</li>
+                            <li><i data-lucide="check"></i> Оформление ОСАГО</li>
+                            <li><i data-lucide="check"></i> Прохождение техосмотра</li>
+                            <li><i data-lucide="check"></i> Получение номерных знаков</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-banner section">
+        <div class="container">
+            <div class="cta-banner__inner" data-reveal>
+                <h2 class="cta-banner__title">Нужна помощь с выбором услуги?</h2>
+                <p class="cta-banner__text">Свяжитесь с нами для бесплатной консультации</p>
+                <a href="/contacts#form" class="btn btn--primary btn--lg">Получить консультацию</a>
+            </div>
+        </div>
+    </section>
+
+    <script type="module" src="/js/pages/services.js"></script>
+</body>
+
+</html>

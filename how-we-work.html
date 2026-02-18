@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Как мы работаем — М-Техникс</title>
+    <meta name="description"
+        content="Два варианта покупки авто из Европы: подбор под заказ или выбор из наличия на СВХ возле таможни. Прозрачный процесс, фиксированные цены." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress">
+        <div class="scroll-progress__fill" id="scrollProgress"></div>
+    </div>
+
+    <section class="page-hero page-hero--dark page-hero--extended" id="heroSection">
+        <div class="container">
+            <div class="page-hero__content" data-reveal>
+                <span class="section__label">Процесс</span>
+                <h1 class="page-hero__title" style="text-transform: uppercase; letter-spacing: 0.04em;">Как мы работаем
+                </h1>
+                <p class="page-hero__subtitle">Выберите удобный вариант — подбор авто из Европы под заказ или готовый
+                    автомобиль из наличия</p>
+
+                <!-- Tab Switcher inside hero -->
+                <div class="tab-switcher tab-switcher--hero" data-reveal>
+                    <div class="tab-switcher__inner">
+                        <div class="tab-switcher__slider"></div>
+                        <button class="tab-switcher__btn active" data-tab="custom"><i data-lucide="globe"></i> Подбор из
+                            Европы</button>
+                        <button class="tab-switcher__btn" data-tab="stock"><i data-lucide="warehouse"></i> Выбор из
+                            наличия</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="position: relative; overflow: hidden;">
+        <div class="container">
+
+            <!-- ═══════ TAB 1: Подбор из Европы ═══════ -->
+            <div class="tab-panel active" id="tab-custom">
+                <div class="bento-grid bento-grid--equal" id="processTimeline">
+
+                    <div class="bento-card" data-reveal>
+                        <div class="bento-card__body">
+                            <span class="bento-card__step">01</span>
+                            <h2 class="bento-card__title"><strong>Заявка и консультация.</strong> Обсуждаем бюджет,
+                                марку, модель — и сразу рассчитываем экономию.</h2>
+                        </div>
+                        <div class="bento-card__visual">
+                            <img src="/images/search-europe.jpg" alt="Консультация и поиск авто" loading="lazy" />
+                        </div>
+                    </div>
+
+                    <div class="bento-card" data-reveal>
+                        <div class="bento-card__body">
+                            <span class="bento-card__step">02</span>
+                            <h2 class="bento-card__title"><strong>Подбор автомобиля.</strong> Ищем на Mobile.de,
+                                AutoScout24, аукционы Copart, BCA — с фото и историей.</h2>
+                        </div>
+                        <div class="bento-card__visual">
+                            <img src="/images/auction-europe.jpg" alt="Подбор авто в Европе" loading="lazy" />
+                        </div>
+                    </div>
+
+                    <div class="bento-card" data-reveal>
+                        <div class="bento-card__body">
+                            <span class="bento-card__step">03</span>
+                            <h2 class="bento-card__title"><strong>Осмотр и проверка.</strong> Детальный осмотр на месте:
+                                кузов, двигатель, VIN-проверка. Фото- и видеоотчёт.</h2>
+                        </div>
+                        <div class="bento-card__visual">
+                            <img src="/images/car-inspection.jpg" alt="Осмотр автомобиля" loading="lazy" />
+                        </div>
+                    </div>
+
+                    <div class="bento-card" data-reveal>
+                        <div class="bento-card__body">
+                            <span class="bento-card__step">04</span>
+                            <h2 class="bento-card__title"><strong>Выкуп и доставка.</strong> Полная растаможка:
+                                документы, пошлины, ЭПТС — всё включено в фиксированную цену.</h2>
+                        </div>
+                        <div class="bento-card__visual">
+                            <img src="/images/car-loading.jpg" alt="Доставка авто из Европы" loading="lazy" />
+                        </div>
+                    </div>
+
+                    <div class="bento-card bento-card--wide" data-reveal style="grid-template-columns: 1fr 1fr;">
+                        <div class="bento-card__body">
+                            <span class="bento-card__step">05</span>
+                            <h2 class="bento-card__title"><strong>Передача автомобиля.</strong> ГИБДД, ОСАГО, техосмотр
+                                — получаете готовый к эксплуатации авто с полным пакетом документов.</h2>
+                        </div>
+                        <div class="bento-card__visual" style="aspect-ratio: 21/9;">
+                            <img src="/images/customs-docs.jpg" alt="Передача автомобиля" loading="lazy" />
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ═══════ TAB 2: Выбор из наличия (СВХ) ═══════ -->
+            <div class="tab-panel" id="tab-stock">
+                <div class="bento-grid bento-grid--equal">
+
+                    <div class="bento-card" data-reveal>
+                        <div class="bento-card__body">
+                            <span class="bento-card__step">01</span>
+                            <h2 class="bento-card__title"><strong>Выберите из каталога.</strong> Авто уже на
+                                СВХ возле таможни — проверены, с документами, готовы к растаможке.</h2>
+                        </div>
+                        <div class="bento-card__visual">
+                            <img src="/images/auction-europe.jpg" alt="Каталог авто на СВХ возле таможни"
+                                loading="lazy" />
+                        </div>
+                    </div>
+
+                    <div class="bento-card" data-reveal>
+                        <div class="bento-card__body">
+                            <span class="bento-card__step">02</span>
+                            <h2 class="bento-card__title"><strong>Растаможка и оформление.</strong> Документы, пошлины,
+                                ЭПТС — всю бюрократию берём на себя.</h2>
+                        </div>
+                        <div class="bento-card__visual">
+                            <img src="/images/vin-check.jpg" alt="Растаможка и оформление" loading="lazy" />
+                        </div>
+                    </div>
+
+                    <div class="bento-card bento-card--wide" data-reveal style="grid-template-columns: 1fr 1fr;">
+                        <div class="bento-card__body">
+                            <span class="bento-card__step">03</span>
+                            <h2 class="bento-card__title"><strong>Получаете готовый авто.</strong> ГИБДД, ОСАГО — и
+                                машина ваша. Весь процесс за 3–5 дней.</h2>
+                        </div>
+                        <div class="bento-card__visual" style="aspect-ratio: 21/9;">
+                            <img src="/images/customs-docs.jpg" alt="Получение автомобиля" loading="lazy" />
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="cta-banner section">
+        <div class="container">
+            <div class="cta-banner__inner" data-reveal>
+                <h2 class="cta-banner__title">Хотите узнать, сколько сэкономите?</h2>
+                <p class="cta-banner__text">Оставьте заявку — мы рассчитаем стоимость вашего авто <span
+                        class="hl--bold">за 30 минут</span></p>
+                <a href="/contacts#form" class="btn btn--primary btn--lg">Рассчитать экономию</a>
+            </div>
+        </div>
+    </section>
+
+    <script type="module" src="/js/pages/how-we-work.js"></script>
+</body>
+
+</html>

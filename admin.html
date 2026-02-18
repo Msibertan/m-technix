@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Панель управления — М-Техникс</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+
+<body class="admin-body loaded">
+
+    <!-- Auth Gate -->
+    <div class="admin-auth" id="adminAuth">
+        <div class="admin-auth__card">
+            <div class="admin-auth__logo">
+                <i data-lucide="shield-check"></i>
+                <h1>М-Техникс</h1>
+                <p>Панель управления</p>
+            </div>
+            <form id="authForm">
+                <div class="admin-form-group">
+                    <label>Пароль</label>
+                    <input type="password" id="authPassword" class="admin-input" placeholder="Введите пароль"
+                        autofocus />
+                </div>
+                <button type="submit" class="btn btn--primary" style="width:100%;margin-top:1rem;">Войти</button>
+                <p class="admin-auth__error" id="authError" style="display:none;">Неверный пароль</p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Panel -->
+    <div class="admin-panel" id="adminPanel" style="display:none;">
+
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="admin-sidebar__logo">
+                <i data-lucide="car"></i>
+                <span>М-Техникс</span>
+            </div>
+            <nav class="admin-nav">
+                <a href="#" class="admin-nav__link active" data-tab="dashboard">
+                    <i data-lucide="layout-dashboard"></i> Дашборд
+                </a>
+                <a href="#" class="admin-nav__link" data-tab="cars">
+                    <i data-lucide="list"></i> Автомобили
+                </a>
+                <a href="#" class="admin-nav__link" data-tab="add">
+                    <i data-lucide="plus-circle"></i> Добавить авто
+                </a>
+            </nav>
+            <div class="admin-sidebar__footer">
+                <a href="/" target="_blank" class="admin-nav__link">
+                    <i data-lucide="external-link"></i> Сайт
+                </a>
+                <a href="#" class="admin-nav__link" id="logoutBtn">
+                    <i data-lucide="log-out"></i> Выйти
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+
+            <!-- Header -->
+            <header class="admin-header">
+                <button class="admin-burger" id="adminBurger"><i data-lucide="menu"></i></button>
+                <h2 class="admin-header__title" id="pageTitle">Дашборд</h2>
+                <div class="admin-header__actions">
+                    <button class="btn btn--primary btn--sm" id="headerAddBtn">
+                        <i data-lucide="plus"></i> Добавить авто
+                    </button>
+                </div>
+            </header>
+
+            <!-- Dashboard Tab -->
+            <div class="admin-tab active" id="tabDashboard">
+                <div class="admin-stats">
+                    <div class="admin-stat-card">
+                        <div class="admin-stat-card__icon"><i data-lucide="car"></i></div>
+                        <div class="admin-stat-card__data">
+                            <span class="admin-stat-card__value" id="statTotal">—</span>
+                            <span class="admin-stat-card__label">Всего авто</span>
+                        </div>
+                    </div>
+                    <div class="admin-stat-card admin-stat-card--green">
+                        <div class="admin-stat-card__icon"><i data-lucide="check-circle"></i></div>
+                        <div class="admin-stat-card__data">
+                            <span class="admin-stat-card__value" id="statAvailable">—</span>
+                            <span class="admin-stat-card__label">В наличии</span>
+                        </div>
+                    </div>
+                    <div class="admin-stat-card admin-stat-card--orange">
+                        <div class="admin-stat-card__icon"><i data-lucide="clock"></i></div>
+                        <div class="admin-stat-card__data">
+                            <span class="admin-stat-card__value" id="statReserved">—</span>
+                            <span class="admin-stat-card__label">Забронировано</span>
+                        </div>
+                    </div>
+                    <div class="admin-stat-card admin-stat-card--red">
+                        <div class="admin-stat-card__icon"><i data-lucide="ban"></i></div>
+                        <div class="admin-stat-card__data">
+                            <span class="admin-stat-card__value" id="statSold">—</span>
+                            <span class="admin-stat-card__label">Продано</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="admin-section">
+                    <h3>Последние добавленные</h3>
+                    <div class="admin-table-wrap" id="recentCarsWrap">
+                        <table class="admin-table" id="recentCarsTable">
+                            <thead>
+                                <tr>
+                                    <th>Фото</th>
+                                    <th>Название</th>
+                                    <th>Год</th>
+                                    <th>Цена</th>
+                                    <th>Статус</th>
+                                    <th>Дата</th>
+                                </tr>
+                            </thead>
+                            <tbody id="recentCarsBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cars List Tab -->
+            <div class="admin-tab" id="tabCars">
+                <div class="admin-toolbar">
+                    <div class="admin-search">
+                        <i data-lucide="search"></i>
+                        <input type="text" id="carsSearch" class="admin-input" placeholder="Поиск по названию..." />
+                    </div>
+                    <div class="admin-toolbar__filters">
+                        <select id="carsStatusFilter" class="admin-select">
+                            <option value="">Все статусы</option>
+                            <option value="available">В наличии</option>
+                            <option value="reserved">Забронировано</option>
+                            <option value="sold">Продано</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="admin-table-wrap">
+                    <table class="admin-table" id="carsTable">
+                        <thead>
+                            <tr>
+                                <th style="width:60px;">Фото</th>
+                                <th>Название</th>
+                                <th>Год</th>
+                                <th>Цена</th>
+                                <th>Пробег</th>
+                                <th>Статус</th>
+                                <th>Дата</th>
+                                <th style="width:160px;">Действия</th>
+                            </tr>
+                        </thead>
+                        <tbody id="carsBody"></tbody>
+                    </table>
+                </div>
+                <div class="admin-empty" id="carsEmpty" style="display:none;">
+                    <i data-lucide="inbox"></i>
+                    <p>Автомобили не найдены</p>
+                </div>
+            </div>
+
+            <!-- Add/Edit Tab -->
+            <div class="admin-tab" id="tabAdd">
+                <form class="admin-form" id="carForm">
+                    <input type="hidden" id="carId" />
+
+                    <div class="admin-form__section">
+                        <h3><i data-lucide="car"></i> Основная информация</h3>
+                        <div class="admin-form__grid">
+                            <div class="admin-form-group">
+                                <label>Марка *</label>
+                                <select id="formBrand" class="admin-select" required></select>
+                            </div>
+                            <div class="admin-form-group">
+                                <label>Модель *</label>
+                                <select id="formModel" class="admin-select" required></select>
+                            </div>
+                            <div class="admin-form-group">
+                                <label>Год выпуска *</label>
+                                <input type="number" id="formYear" class="admin-input" min="1990" max="2030" required />
+                            </div>
+                            <div class="admin-form-group">
+                                <label>Цена, ₽ *</label>
+                                <input type="number" id="formPrice" class="admin-input" step="1000" min="0" required />
+                            </div>
+                            <div class="admin-form-group">
+                                <label>Пробег, км *</label>
+                                <input type="number" id="formMileage" class="admin-input" min="0" required />
+                            </div>
+                            <div class="admin-form-group">
+                                <label>Статус</label>
+                                <select id="formStatus" class="admin-select">
+                                    <option value="available">В наличии</option>
+                                    <option value="reserved">Забронирован</option>
+                                    <option value="sold">Продан</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="admin-form__section">
+                        <h3><i data-lucide="settings-2"></i> Характеристики</h3>
+                        <div class="admin-form__grid">
+                            <div class="admin-form-group">
+                                <label>Топливо *</label>
+                                <select id="formFuel" class="admin-select" required>
+                                    <option value="">—</option>
+                                    <option value="Бензин">Бензин</option>
+                                    <option value="Дизель">Дизель</option>
+                                    <option value="Гибрид">Гибрид</option>
+                                    <option value="Электро">Электро</option>
+                                </select>
+                            </div>
+                            <div class="admin-form-group">
+                                <label>КПП *</label>
+                                <select id="formTransmission" class="admin-select" required>
+                                    <option value="">—</option>
+                                    <option value="Автомат">Автомат</option>
+                                    <option value="Механика">Механика</option>
+                                    <option value="Робот">Робот</option>
+                                </select>
+                            </div>
+                            <div class="admin-form-group">
+                                <label>Объём двигателя, л</label>
+                                <input type="number" id="formEngine" class="admin-input" step="0.1" min="0" />
+                            </div>
+                            <div class="admin-form-group">
+                                <label>Мощность, л.с.</label>
+                                <input type="number" id="formPower" class="admin-input" min="0" />
+                            </div>
+                            <div class="admin-form-group">
+                                <label>Привод</label>
+                                <select id="formDrive" class="admin-select">
+                                    <option value="">—</option>
+                                    <option value="FWD">Передний (FWD)</option>
+                                    <option value="RWD">Задний (RWD)</option>
+                                    <option value="AWD">Полный (AWD)</option>
+                                    <option value="4WD">Полный (4WD)</option>
+                                </select>
+                            </div>
+                            <div class="admin-form-group">
+                                <label>Кузов</label>
+                                <select id="formBody" class="admin-select">
+                                    <option value="">—</option>
+                                    <option value="Седан">Седан</option>
+                                    <option value="Хэтчбек">Хэтчбек</option>
+                                    <option value="Универсал">Универсал</option>
+                                    <option value="Кроссовер">Кроссовер</option>
+                                    <option value="Внедорожник">Внедорожник</option>
+                                    <option value="Купе">Купе</option>
+                                    <option value="Кабриолет">Кабриолет</option>
+                                    <option value="Минивэн">Минивэн</option>
+                                    <option value="Пикап">Пикап</option>
+                                    <option value="Лифтбек">Лифтбек</option>
+                                    <option value="Фургон">Фургон</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="admin-form__section">
+                        <h3><i data-lucide="palette"></i> Цвет</h3>
+                        <div class="admin-form__grid">
+                            <div class="admin-form-group">
+                                <label>Цвет экстерьера</label>
+                                <input type="text" id="formColorExt" class="admin-input" placeholder="Белый" />
+                            </div>
+                            <div class="admin-form-group">
+                                <label>Цвет интерьера</label>
+                                <input type="text" id="formColorInt" class="admin-input" placeholder="Чёрный" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="admin-form__section">
+                        <h3><i data-lucide="file-text"></i> Описание</h3>
+                        <div class="admin-form-group">
+                            <label>Заголовок (генерируется автоматически, можно переопределить)</label>
+                            <input type="text" id="formTitle" class="admin-input" placeholder="BMW X5 2024" />
+                        </div>
+                        <div class="admin-form-group">
+                            <label>Краткое описание</label>
+                            <input type="text" id="formShortDesc" class="admin-input"
+                                placeholder="Одна строка для каталога" />
+                        </div>
+                        <div class="admin-form-group">
+                            <label>Полное описание</label>
+                            <textarea id="formFullDesc" class="admin-textarea" rows="6"
+                                placeholder="Подробное описание автомобиля..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="admin-form__section">
+                        <h3><i data-lucide="shield-check"></i> Дополнительно</h3>
+                        <div class="admin-form__grid">
+                            <div class="admin-form-group admin-form-group--checkboxes">
+                                <label class="admin-checkbox">
+                                    <input type="checkbox" id="formFeatured" /> Избранное (показывать на главной)
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="admin-form__section">
+                        <h3><i data-lucide="image"></i> Фотографии</h3>
+                        <div class="admin-dropzone" id="dropzone">
+                            <i data-lucide="upload-cloud"></i>
+                            <p>Перетащите фото сюда или <span>выберите файлы</span></p>
+                            <small>JPG, PNG, WebP — до 10 МБ каждое</small>
+                            <input type="file" id="fileInput" multiple
+                                accept="image/jpeg,image/png,image/webp,image/avif" />
+                        </div>
+                        <div class="admin-photos" id="photosPreview"></div>
+                    </div>
+
+                    <div class="admin-form__actions">
+                        <button type="submit" class="btn btn--primary btn--lg" id="formSubmitBtn">
+                            <i data-lucide="save"></i> Сохранить
+                        </button>
+                        <button type="button" class="btn btn--outline btn--lg" id="formCancelBtn">
+                            Отмена
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Delete Confirm Modal -->
+    <div class="admin-modal" id="deleteModal">
+        <div class="admin-modal__card">
+            <h3>Удалить автомобиль?</h3>
+            <p id="deleteModalText">Это действие нельзя отменить.</p>
+            <div class="admin-modal__actions">
+                <button class="btn btn--danger" id="deleteConfirmBtn">Удалить</button>
+                <button class="btn btn--outline" id="deleteCancelBtn">Отмена</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="admin-toast" id="toast"></div>
+
+    <script type="module" src="/js/pages/admin.js"></script>
+</body>
+
+</html>

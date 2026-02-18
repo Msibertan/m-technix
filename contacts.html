@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Контакты — М-Техникс</title>
+    <meta name="description"
+        content="Свяжитесь с М-Техникс: телефон, email, адрес. Оставьте заявку на подбор автомобиля из Европы." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress">
+        <div class="scroll-progress__fill" id="scrollProgress"></div>
+    </div>
+
+    <!-- Dark Hero with background -->
+    <section class="page-hero page-hero--dark page-hero--extended">
+        <div class="container">
+            <div class="page-hero__content" data-reveal>
+                <span class="section__label">Контакты</span>
+                <h1 class="page-hero__title">Свяжитесь с нами</h1>
+                <p class="page-hero__subtitle">Мы всегда на связи и готовы помочь с подбором автомобиля</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hero Divider -->
+
+
+
+    <!-- Contact Bento Grid -->
+    <section class="section" style="position: relative; overflow: hidden;">
+        <div class="container">
+            <div class="bento-grid">
+
+                <!-- Row 1: Phone (large) + Email -->
+                <div class="bento-card bento-card--lg" data-reveal>
+                    <div class="bento-card__body">
+                        <span class="bento-card__step">Связь</span>
+                        <div class="bento-card__icon"><i data-lucide="phone"></i></div>
+                        <h2 class="bento-card__title">Телефон</h2>
+                        <p class="bento-card__text">
+                            <a href="tel:+79390349133"
+                                style="color: var(--c-accent); font-weight: 600; font-size: 1.2rem; text-decoration: none;">+7
+                                939 034-91-33</a>
+                        </p>
+                        <p class="bento-card__text">Пн–Сб: 9:00 — 20:00</p>
+                    </div>
+                </div>
+
+                <div class="bento-card" data-reveal>
+                    <div class="bento-card__body">
+                        <span class="bento-card__step">Почта</span>
+                        <div class="bento-card__icon"><i data-lucide="mail"></i></div>
+                        <h2 class="bento-card__title">Email</h2>
+                        <p class="bento-card__text">
+                            <a href="mailto:mtehnics@mail.ru"
+                                style="color: var(--c-accent); font-weight: 600; text-decoration: none;">mtehnics@mail.ru</a>
+                        </p>
+                        <p class="bento-card__text">Ответим за 2 часа</p>
+                    </div>
+                </div>
+
+                <!-- Row 2: Address + Messengers -->
+                <div class="bento-card" data-reveal>
+                    <div class="bento-card__body">
+                        <span class="bento-card__step">Офис</span>
+                        <div class="bento-card__icon"><i data-lucide="map-pin"></i></div>
+                        <h2 class="bento-card__title">Адрес</h2>
+                        <p class="bento-card__text">г. Гродно, ул. Тимирязева, 10, корп. 1<br>БЦ «Августовский»</p>
+                    </div>
+                </div>
+
+                <div class="bento-card bento-card--lg" data-reveal>
+                    <div class="bento-card__body">
+                        <span class="bento-card__step">Мессенджеры</span>
+                        <div class="bento-card__icon"><i data-lucide="message-circle"></i></div>
+                        <h2 class="bento-card__title">Напишите нам</h2>
+                        <div style="display: flex; gap: var(--s-md); margin-top: var(--s-sm);">
+                            <a href="https://wa.me/79390349133" target="_blank" rel="noopener" class="btn btn--primary"
+                                style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                                <i data-lucide="message-circle" style="width: 18px; height: 18px;"></i> WhatsApp
+                            </a>
+                            <a href="https://t.me/+79390349133" target="_blank" rel="noopener" class="btn btn--primary"
+                                style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                                <i data-lucide="send" style="width: 18px; height: 18px;"></i> Telegram
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 3: Form (wide card) -->
+                <div class="bento-card bento-card--wide" id="form" data-reveal style="grid-template-columns: 1fr 1fr;">
+                    <div class="bento-card__body" style="padding: var(--s-2xl) var(--s-xl);">
+                        <span class="bento-card__step">Заявка</span>
+                        <h2 class="bento-card__title">Оставить заявку</h2>
+                        <p class="bento-card__text">Заполните форму и наш менеджер свяжется с вами в течение 30 минут
+                        </p>
+                        <form id="contactForm" class="form" style="margin-top: var(--s-md);">
+                            <div class="form__group" style="margin-bottom: var(--s-md);">
+                                <label for="name" class="form__label">Ваше имя</label>
+                                <input type="text" id="name" name="name" class="form__input" placeholder="Иван Иванов"
+                                    required />
+                            </div>
+                            <div class="form__group" style="margin-bottom: var(--s-md);">
+                                <label for="phone" class="form__label">Телефон</label>
+                                <input type="tel" id="phone" name="phone" class="form__input"
+                                    placeholder="+7 (___) ___-__-__" required />
+                            </div>
+                            <div class="form__group" style="margin-bottom: var(--s-md);">
+                                <label for="car" class="form__label">Какой автомобиль?</label>
+                                <input type="text" id="car" name="car" class="form__input"
+                                    placeholder="Марка, модель, год, бюджет" />
+                            </div>
+                            <button type="submit" class="btn btn--primary btn--lg form__submit">Отправить
+                                заявку</button>
+                            <p class="form__disclaimer">Нажимая «Отправить», вы соглашаетесь с <a href="#">политикой
+                                    конфиденциальности</a></p>
+                        </form>
+                    </div>
+                    <div class="bento-card__body"
+                        style="padding: var(--s-2xl) var(--s-xl); background: var(--c-bg-alt); border-left: 1px solid var(--c-border);">
+                        <h3
+                            style="font-family: var(--f-heading); font-size: 1.2rem; color: var(--c-dark); margin-bottom: var(--s-lg);">
+                            Почему обращаются к нам</h3>
+
+                        <div
+                            style="display: flex; align-items: flex-start; gap: var(--s-md); margin-bottom: var(--s-lg);">
+                            <div class="bento-card__icon" style="flex-shrink: 0;"><i data-lucide="clock"></i></div>
+                            <div>
+                                <strong style="color: var(--c-dark);">Ответ за 30 минут</strong>
+                                <p style="color: var(--c-text-muted); font-size: 0.9rem;">Менеджер перезвонит быстро</p>
+                            </div>
+                        </div>
+
+                        <div
+                            style="display: flex; align-items: flex-start; gap: var(--s-md); margin-bottom: var(--s-lg);">
+                            <div class="bento-card__icon" style="flex-shrink: 0;"><i data-lucide="shield-check"></i>
+                            </div>
+                            <div>
+                                <strong style="color: var(--c-dark);">Прозрачные условия</strong>
+                                <p style="color: var(--c-text-muted); font-size: 0.9rem;">Фиксированная стоимость, без
+                                    скрытых платежей</p>
+                            </div>
+                        </div>
+
+                        <div
+                            style="display: flex; align-items: flex-start; gap: var(--s-md); margin-bottom: var(--s-lg);">
+                            <div class="bento-card__icon" style="flex-shrink: 0;"><i data-lucide="users"></i></div>
+                            <div>
+                                <strong style="color: var(--c-dark);">500+ клиентов</strong>
+                                <p style="color: var(--c-text-muted); font-size: 0.9rem;">Работаем с 2018 года</p>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; align-items: flex-start; gap: var(--s-md);">
+                            <div class="bento-card__icon" style="flex-shrink: 0;"><i data-lucide="car"></i></div>
+                            <div>
+                                <strong style="color: var(--c-dark);">Экономия до 30%</strong>
+                                <p style="color: var(--c-text-muted); font-size: 0.9rem;">Авто из Европы дешевле рынка
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Map -->
+    <section class="contacts-map">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2592.0800096619187!2d23.846922848416167!3d53.688862134184625!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dfd617f42652eb%3A0x75bed0bf5c2a4e84!2z0JHQuNC30L3QtdGBLdGG0LXQvdGC0YAgItCQ0LLQs9GD0YHRgtC-0LLRgdC60LjQuSI!5e1!3m2!1sru!2sde!4v1771336217294!5m2!1sru!2sde"
+            width="100%" height="450" frameborder="0" style="display:block; border:0;" allowfullscreen loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade" title="Карта офиса М-Техникс"></iframe>
+    </section>
+
+    <script type="module" src="/js/pages/contacts.js"></script>
+</body>
+
+</html>

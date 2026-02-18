@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 44" fill="none">
+  <defs>
+    <linearGradient id="gold-h" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#d4a853"/>
+      <stop offset="100%" stop-color="#a07a3a"/>
+    </linearGradient>
+  </defs>
+  <!-- Icon: rounded square with M -->
+  <rect width="38" height="38" y="3" rx="8" fill="url(#gold-h)"/>
+  <path d="M 9 30 L 9 13 L 13.8 13 L 19 23 L 24.2 13 L 29 13 L 29 30 L 25.2 30 L 25.2 20 L 20.4 29 L 17.6 29 L 12.8 20 L 12.8 30 Z" fill="#fff"/>
+  <!-- Text: М-Техникс -->
+  <text x="48" y="29" font-family="Playfair Display, serif" font-weight="600" font-size="22" fill="#1a1a2e">М-Техникс</text>
+</svg>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Каталог авто — М-Техникс</title>
+    <meta name="description"
+        content="Каталог автомобилей из Европы в наличии и под заказ. BMW, Mercedes, Audi, Volkswagen и другие марки." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress">
+        <div class="scroll-progress__fill" id="scrollProgress"></div>
+    </div>
+
+    <section class="page-hero page-hero--dark page-hero--extended">
+        <div class="container">
+            <div class="page-hero__content" data-reveal>
+                <span class="section__label">Каталог</span>
+                <h1 class="page-hero__title">Автомобили из Европы</h1>
+                <p class="page-hero__subtitle">Актуальные предложения в наличии и под заказ из 15 стран Европы</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+
+            <!-- ═══════ FILTER PANEL ═══════ -->
+            <div class="catalog-filters" id="catalogFilters" data-reveal>
+                <div class="catalog-filters__row">
+                    <div class="catalog-filters__group">
+                        <label class="catalog-filters__label">
+                            <i data-lucide="car"></i> Марка
+                        </label>
+                        <select id="filterBrand" class="catalog-filters__select">
+                            <option value="">Все марки</option>
+                        </select>
+                    </div>
+                    <div class="catalog-filters__group">
+                        <label class="catalog-filters__label">
+                            <i data-lucide="tag"></i> Модель
+                        </label>
+                        <select id="filterModel" class="catalog-filters__select" disabled>
+                            <option value="">Сначала выберите марку</option>
+                        </select>
+                    </div>
+                    <div class="catalog-filters__group">
+                        <label class="catalog-filters__label">
+                            <i data-lucide="calendar"></i> Год от
+                        </label>
+                        <select id="filterYearFrom" class="catalog-filters__select">
+                            <option value="">Любой</option>
+                        </select>
+                    </div>
+                    <div class="catalog-filters__group">
+                        <label class="catalog-filters__label">
+                            <i data-lucide="calendar"></i> Год до
+                        </label>
+                        <select id="filterYearTo" class="catalog-filters__select">
+                            <option value="">Любой</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="catalog-filters__row">
+                    <div class="catalog-filters__group">
+                        <label class="catalog-filters__label">
+                            <i data-lucide="fuel"></i> Топливо
+                        </label>
+                        <select id="filterFuel" class="catalog-filters__select">
+                            <option value="">Все</option>
+                            <option value="Бензин">Бензин</option>
+                            <option value="Дизель">Дизель</option>
+                            <option value="Гибрид">Гибрид</option>
+                            <option value="Электро">Электро</option>
+                        </select>
+                    </div>
+                    <div class="catalog-filters__group">
+                        <label class="catalog-filters__label">
+                            <i data-lucide="settings-2"></i> КПП
+                        </label>
+                        <select id="filterTransmission" class="catalog-filters__select">
+                            <option value="">Все</option>
+                            <option value="Автомат">Автомат</option>
+                            <option value="Механика">Механика</option>
+                            <option value="Робот">Робот</option>
+                        </select>
+                    </div>
+                    <div class="catalog-filters__group catalog-filters__group--price">
+                        <label class="catalog-filters__label">
+                            <i data-lucide="russian-ruble"></i> Цена до, ₽
+                        </label>
+                        <input type="number" id="filterPriceMax" class="catalog-filters__input"
+                            placeholder="Без ограничений" step="1000" min="0" />
+                    </div>
+                    <div class="catalog-filters__group catalog-filters__group--actions">
+                        <button class="btn btn--primary catalog-filters__apply" id="applyFilters">
+                            <i data-lucide="search"></i> Найти
+                        </button>
+                        <button class="catalog-filters__reset" id="resetFilters">
+                            <i data-lucide="x"></i> Сбросить
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results count -->
+            <div class="catalog-results" id="catalogResults" data-reveal>
+                <span class="catalog-results__count" id="resultsCount">Загрузка...</span>
+                <div class="catalog-results__sort">
+                    <label>Сортировка:</label>
+                    <select id="sortOrder" class="catalog-filters__select catalog-filters__select--sm">
+                        <option value="created_at.desc">Новые</option>
+                        <option value="price.asc">Цена ↑</option>
+                        <option value="price.desc">Цена ↓</option>
+                        <option value="year.desc">Год ↓</option>
+                        <option value="mileage.asc">Пробег ↑</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Car Cards Grid -->
+            <div class="catalog__grid catalog__grid--full" id="carsGrid">
+                <!-- Cards will be rendered by JS -->
+            </div>
+
+            <!-- Loading spinner -->
+            <div class="catalog-loading" id="catalogLoading" style="display: none;">
+                <div class="catalog-loading__spinner"></div>
+                <span>Загрузка автомобилей...</span>
+            </div>
+
+            <!-- Empty state -->
+            <div class="catalog-empty" id="catalogEmpty" style="display: none;">
+                <i data-lucide="search-x"></i>
+                <h3>Автомобили не найдены</h3>
+                <p>Попробуйте изменить параметры поиска или сбросить фильтры</p>
+                <button class="btn btn--primary" id="emptyReset">Сбросить фильтры</button>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="cta-banner section">
+        <div class="container">
+            <div class="cta-banner__inner" data-reveal>
+                <h2 class="cta-banner__title">Не нашли нужный автомобиль?</h2>
+                <p class="cta-banner__text">Мы подберём любой авто под ваш запрос из 15 стран Европы</p>
+                <a href="/contacts#form" class="btn btn--primary btn--lg">Оставить заявку на подбор</a>
+            </div>
+        </div>
+    </section>
+
+    <script type="module" src="/js/pages/catalog.js"></script>
+</body>
+
+</html>

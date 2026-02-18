@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>М-Техникс — Купите авто из Европы на 30% дешевле без рисков</title>
+  <meta name="description"
+    content="Сэкономьте до 30% на покупке авто из Европы. Берём на себя подбор, проверку, доставку и растаможку. Без скрытых платежей, с гарантией юридической чистоты." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+
+<body>
+
+  <!-- Scroll Progress -->
+  <div class="scroll-progress">
+    <div class="scroll-progress__fill" id="scrollProgress"></div>
+  </div>
+
+  <!-- ═══════════════ HERO ═══════════════ -->
+  <section class="hero" id="hero">
+    <div class="container hero__center">
+      <p class="hero__badge">Уже 500+ клиентов сэкономили на покупке</p>
+      <h1 class="hero__title">
+        Купите авто из Европы
+        <span class="hero__title-morph" id="morphText"></span>
+      </h1>
+      <p class="hero__subtitle">Вы получаете проверенный автомобиль с гарантией юр. чистоты —<br /><span
+          class="hl--bold">без рисков, переплат и бюрократии</span></p>
+      <div class="hero__actions">
+        <a href="/contacts#form" class="btn btn--primary btn--lg">Оставить заявку</a>
+      </div>
+
+    </div>
+    <p class="brands__label" style="text-align: center; margin-bottom: var(--s-md);">Привозим любую марку напрямую из
+      Европы</p>
+    <div class="hero__gallery">
+      <div class="hero__gallery-track">
+        <div class="hero__gallery-item hero__gallery-item--peek">
+          <img src="/images/hero-bg.jpg" alt="Европейский автопарк" loading="eager" />
+        </div>
+        <div class="hero__gallery-item">
+          <img src="/images/search-europe.jpg" alt="Подбор на площадке" loading="eager" />
+        </div>
+        <div class="hero__gallery-item hero__gallery-item--tall">
+          <img src="/images/car-inspection.jpg" alt="Осмотр автомобиля" loading="eager" />
+        </div>
+        <div class="hero__gallery-item">
+          <img src="/images/autovoz-road.jpg" alt="Доставка автовозом" loading="eager" />
+        </div>
+        <div class="hero__gallery-item hero__gallery-item--tall">
+          <img src="/images/auction-europe.jpg" alt="Аукцион в Европе" loading="eager" />
+        </div>
+        <div class="hero__gallery-item">
+          <img src="/images/customs-docs.jpg" alt="Таможенное оформление" loading="eager" />
+        </div>
+        <div class="hero__gallery-item hero__gallery-item--peek">
+          <img src="/images/car-loading.jpg" alt="Загрузка автомобиля" loading="eager" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ BRAND STRIP ═══════════════ -->
+  <section class="brands">
+    <div class="container">
+
+      <div class="brands__track">
+        <span class="brands__item">BMW</span>
+        <span class="brands__sep">·</span>
+        <span class="brands__item">Mercedes-Benz</span>
+        <span class="brands__sep">·</span>
+        <span class="brands__item">Audi</span>
+        <span class="brands__sep">·</span>
+        <span class="brands__item">Volkswagen</span>
+        <span class="brands__sep">·</span>
+        <span class="brands__item">Volvo</span>
+        <span class="brands__sep">·</span>
+        <span class="brands__item">Porsche</span>
+        <span class="brands__sep">·</span>
+        <span class="brands__item">Toyota</span>
+        <span class="brands__sep">·</span>
+        <span class="brands__item">Skoda</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ SERVICES PREVIEW ═══════════════ -->
+  <section class="services section" id="services">
+    <div class="container">
+      <div class="section__header" data-reveal>
+        <span class="section__label">Что вы получаете</span>
+        <h2 class="section__title">Забудьте о рисках и бюрократии —<br /><span class="hl">мы берём всё на себя</span>
+        </h2>
+      </div>
+      <div class="services__grid">
+        <div class="service-card" data-reveal>
+          <div class="service-card__image">
+            <img src="/images/search-europe.jpg" alt="Поиск авто в Европе" loading="lazy" />
+          </div>
+          <div class="service-card__content">
+            <div class="service-card__icon"><i data-lucide="search"></i></div>
+            <h3 class="service-card__title">Найдём именно ваш авто</h3>
+            <p class="service-card__text">Вы не тратите недели на мониторинг — мы находим лучший вариант по вашему
+              бюджету
+              среди тысяч предложений в 15 странах</p>
+          </div>
+        </div>
+        <div class="service-card" data-reveal>
+          <div class="service-card__image">
+            <img src="/images/car-inspection.jpg" alt="Проверка автомобиля" loading="lazy" />
+          </div>
+          <div class="service-card__content">
+            <div class="service-card__icon"><i data-lucide="scan-search"></i></div>
+            <h3 class="service-card__title">Защитим от скрытых проблем</h3>
+            <p class="service-card__text">120+ точек диагностики, проверка по базам угона и залогов — вы не купите
+              проблемный автомобиль</p>
+          </div>
+        </div>
+        <div class="service-card" data-reveal>
+          <div class="service-card__image">
+            <img src="/images/autovoz-road.jpg" alt="Доставка автомобиля" loading="lazy" />
+          </div>
+          <div class="service-card__content">
+            <div class="service-card__icon"><i data-lucide="ship"></i></div>
+            <h3 class="service-card__title">Доставим без переплат</h3>
+            <p class="service-card__text">Логистика, растаможка, страховка — фиксированная цена без «сюрпризов», которые
+              съедают экономию</p>
+          </div>
+        </div>
+        <div class="service-card" data-reveal>
+          <div class="service-card__image">
+            <img src="/images/customs-docs.jpg" alt="Оформление документов" loading="lazy" />
+          </div>
+          <div class="service-card__content">
+            <div class="service-card__icon"><i data-lucide="file-check-2"></i></div>
+            <h3 class="service-card__title">Оформим за вас</h3>
+            <p class="service-card__text">Вам не нужно стоять в очередях — ЭПТС, ГИБДД, все документы будут готовы к
+              моменту передачи</p>
+          </div>
+        </div>
+      </div>
+      <div class="section__cta" data-reveal>
+        <a href="/services" class="btn btn--ghost">Все услуги →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ ADVANTAGES ═══════════════ -->
+  <section class="advantages section section--alt" id="advantages">
+    <div class="container">
+      <div class="section__header" data-reveal>
+        <span class="section__label">Почему 500+ клиентов выбрали нас</span>
+        <h2 class="section__title">Вы <span class="hl">не рискуете</span> ничем —<br />мы гарантируем это
+          договором</h2>
+      </div>
+      <div class="advantages__grid advantages__grid--v2">
+        <div class="advantage-v2" data-reveal>
+          <div class="advantage-v2__icon-wrap">
+            <i data-lucide="banknote"></i>
+          </div>
+          <div class="advantage-v2__body">
+            <span class="advantage-v2__num">01</span>
+            <h3 class="advantage-v2__title">Без предоплаты</h3>
+            <p class="advantage-v2__text">Мы работаем без предоплаты. Оплата за растаможку — когда авто уже таможится.
+              <span class="hl--bold">Оплата за авто — по факту выкупа</span>
+            </p>
+          </div>
+        </div>
+        <div class="advantage-v2" data-reveal>
+          <div class="advantage-v2__icon-wrap">
+            <i data-lucide="wallet"></i>
+          </div>
+          <div class="advantage-v2__body">
+            <span class="advantage-v2__num">02</span>
+            <h3 class="advantage-v2__title">Бюджет от 800 000 ₽</h3>
+            <p class="advantage-v2__text">Работаем с бюджетом <span class="hl--bold">от 800 000 рублей</span>. Подберём
+              качественный автомобиль с хорошей историей под ваш бюджет</p>
+          </div>
+        </div>
+        <div class="advantage-v2" data-reveal>
+          <div class="advantage-v2__icon-wrap">
+            <i data-lucide="credit-card"></i>
+          </div>
+          <div class="advantage-v2__body">
+            <span class="advantage-v2__num">03</span>
+            <h3 class="advantage-v2__title">Рассрочка от компании</h3>
+            <p class="advantage-v2__text">Предоставляем <span class="hl--bold">рассрочку только от себя</span> на
+              выгодных условиях — никаких банков и переплат</p>
+          </div>
+        </div>
+        <div class="advantage-v2" data-reveal>
+          <div class="advantage-v2__icon-wrap">
+            <i data-lucide="plane"></i>
+          </div>
+          <div class="advantage-v2__body">
+            <span class="advantage-v2__num">04</span>
+            <h3 class="advantage-v2__title">Можно приехать увидеть</h3>
+            <p class="advantage-v2__text">Если у вас есть пропуск в страны Европы — <span class="hl--bold">приезжайте,
+                покажем автомобиль лично</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ PROCESS ═══════════════ -->
+  <section class="process section" id="process">
+    <div class="container">
+      <div class="section__header" data-reveal>
+        <span class="section__label">Как это работает</span>
+        <h2 class="section__title">От заявки до ключей в руках —<br /><span class="hl">всего 7–14 дней</span>
+        </h2>
+      </div>
+      <div class="process__timeline">
+        <div class="process__step" data-reveal>
+          <div class="process__step-number">1</div>
+          <div class="process__step-content">
+            <h3 class="process__step-title">Расскажите, что хотите</h3>
+            <p class="process__step-text">Оставьте заявку — мы перезвоним за 30 минут, уточним бюджет и пожелания. Вы не
+              тратите время на поиск.</p>
+          </div>
+          <div class="process__step-image">
+            <img src="/images/phone.jpg" alt="Консультация по телефону" loading="lazy" />
+          </div>
+        </div>
+        <div class="process__step" data-reveal>
+          <div class="process__step-number">2</div>
+          <div class="process__step-content">
+            <h3 class="process__step-title">Мы находим и проверяем</h3>
+            <p class="process__step-text">Подбираем лучшие варианты, проводим диагностику и шлём вам фото/видео.
+              Выкупаем только после вашего «да».</p>
+          </div>
+          <div class="process__step-image">
+            <img src="/images/auction-europe.jpg" alt="Авто аукцион в Европе" loading="lazy" />
+          </div>
+        </div>
+        <div class="process__step" data-reveal>
+          <div class="process__step-number">3</div>
+          <div class="process__step-content">
+            <h3 class="process__step-title">Получаете готовый авто</h3>
+            <p class="process__step-text">Доставка, растаможка, постановка на учёт — вы просто забираете авто с полным
+              пакетом документов.
+            </p>
+          </div>
+          <div class="process__step-image">
+            <img src="/images/border-crossing.jpg" alt="Доставка авто" loading="lazy" />
+          </div>
+        </div>
+      </div>
+      <div class="section__cta" data-reveal>
+        <a href="/how-we-work" class="btn btn--ghost">Подробнее →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ CATALOG PREVIEW ═══════════════ -->
+  <section class="catalog section section--alt" id="catalog">
+    <div class="container">
+      <div class="section__header" data-reveal>
+        <span class="section__label">Выгодные предложения</span>
+        <h2 class="section__title">Эти авто <span class="hl">уже проверены</span><br />и готовы к покупке</h2>
+      </div>
+      <div class="catalog__grid" id="homeCarsGrid">
+        <!-- Loaded dynamically from Supabase -->
+        <div class="catalog-loading" id="homeCarsLoading">
+          <div class="catalog-loading__spinner"></div>
+          <span>Загрузка автомобилей...</span>
+        </div>
+      </div>
+      <div class="section__cta" data-reveal>
+        <a href="/catalog" class="btn btn--ghost">Весь каталог →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ REVIEWS PREVIEW ═══════════════ -->
+  <section class="reviews section" id="reviews">
+    <div class="container">
+      <div class="section__header" data-reveal>
+        <span class="section__label">Результаты клиентов</span>
+        <h2 class="section__title">Они <span class="hl">сэкономили</span><br />и вот что говорят</h2>
+      </div>
+      <div class="reviews-photo-grid reviews-photo-grid--home">
+        <div class="review-photo-card" data-reveal>
+          <div class="review-photo-card__image">
+            <img src="/Otzivy/1.jpg" alt="Клиент Алексей с Toyota Prius" loading="lazy" />
+          </div>
+          <div class="review-photo-card__body">
+            <div class="review-photo-card__stars">★★★★★</div>
+            <p class="review-photo-card__text"><strong>Идеальный вариант из Европы.</strong> Автомобиль в
+              отличном состоянии, все документы в порядке.</p>
+            <div class="review-photo-card__author">
+              <strong>Алексей М.</strong>
+              <span>Toyota Prius, 2022</span>
+            </div>
+          </div>
+        </div>
+        <div class="review-photo-card" data-reveal>
+          <div class="review-photo-card__image">
+            <img src="/Otzivy/2.jpg" alt="Клиент Дмитрий с Toyota RAV4" loading="lazy" />
+          </div>
+          <div class="review-photo-card__body">
+            <div class="review-photo-card__stars">★★★★★</div>
+            <p class="review-photo-card__text"><strong>Сэкономил 500 тысяч.</strong> Профессиональный подход
+              на всех этапах. Регулярно присылали фото и видео отчёты.</p>
+            <div class="review-photo-card__author">
+              <strong>Дмитрий К.</strong>
+              <span>Toyota RAV4, 2021</span>
+            </div>
+          </div>
+        </div>
+        <div class="review-photo-card" data-reveal>
+          <div class="review-photo-card__image">
+            <img src="/Otzivy/5.jpg" alt="Семья Сергея с Hyundai Tucson" loading="lazy" />
+          </div>
+          <div class="review-photo-card__body">
+            <div class="review-photo-card__stars">★★★★★</div>
+            <p class="review-photo-card__text"><strong>Профессионалы.</strong> Машина в идеальном состоянии,
+              цена выгоднее рынка. Уже рекомендовал друзьям.</p>
+            <div class="review-photo-card__author">
+              <strong>Сергей Л.</strong>
+              <span>Hyundai Tucson, 2021</span>
+            </div>
+          </div>
+        </div>
+        <div class="review-photo-card" data-reveal>
+          <div class="review-photo-card__image">
+            <img src="/Otzivy/9.jpg" alt="Клиент Андрей с VW Touareg R" loading="lazy" />
+          </div>
+          <div class="review-photo-card__body">
+            <div class="review-photo-card__stars">★★★★★</div>
+            <p class="review-photo-card__text"><strong>Рекомендую всем!</strong> Нашли нужную модель за
+              неделю, доставили быстро. Полное сопровождение на каждом этапе.</p>
+            <div class="review-photo-card__author">
+              <strong>Андрей П.</strong>
+              <span>VW Touareg R, 2022</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section__cta" data-reveal>
+        <a href="/reviews" class="btn btn--ghost">Все отзывы →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ FAQ PREVIEW ═══════════════ -->
+  <section class="faq section section--alt" id="faq">
+    <div class="container">
+      <div class="section__header" data-reveal>
+        <span class="section__label">У вас есть вопросы?</span>
+        <h2 class="section__title">То, что <span class="hl">важно знать</span><br />перед покупкой</h2>
+      </div>
+      <div class="faq__list">
+        <div class="faq__item" data-reveal>
+          <button class="faq__question"><span>Сколько времени занимает весь процесс?</span><i data-lucide="chevron-down"
+              class="faq__chevron"></i></button>
+          <div class="faq__answer">
+            <p>Весь процесс занимает <strong>7–14 дней</strong> — от подбора до получения автомобиля.</p>
+          </div>
+        </div>
+        <div class="faq__item" data-reveal>
+          <button class="faq__question"><span>Можно ли купить автомобиль в рассрочку?</span><i
+              data-lucide="chevron-down" class="faq__chevron"></i></button>
+          <div class="faq__answer">
+            <p>Да, мы предоставляем рассрочку <strong>только от себя</strong> на выгодных условиях — без банков и лишних
+              переплат.</p>
+          </div>
+        </div>
+        <div class="faq__item" data-reveal>
+          <button class="faq__question"><span>Как происходит оплата?</span><i data-lucide="chevron-down"
+              class="faq__chevron"></i></button>
+          <div class="faq__answer">
+            <p>Работаем <strong>без предоплаты</strong>. Оплата за растаможку — когда авто уже таможится. Оплата за сам
+              автомобиль — по факту выкупа.</p>
+          </div>
+        </div>
+      </div>
+      <div class="section__cta" data-reveal>
+        <a href="/faq" class="btn btn--ghost">Все вопросы →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ CTA BANNER ═══════════════ -->
+  <section class="cta-banner section">
+    <div class="container">
+      <div class="cta-banner__inner" data-reveal>
+        <h2 class="cta-banner__title">Хотите узнать, сколько сэкономите?</h2>
+        <p class="cta-banner__text">Оставьте заявку — мы рассчитаем стоимость вашего авто и покажем разницу с российским
+          рынком <span class="hl--bold">за 30 минут</span></p>
+        <a href="/contacts#form" class="btn btn--primary btn--lg">Рассчитать экономию</a>
+      </div>
+    </div>
+  </section>
+
+  <script type="module" src="/js/pages/index.js"></script>
+</body>
+
+</html>
