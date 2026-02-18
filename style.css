@@ -309,11 +309,11 @@ textarea {
 }
 
 .logo__img {
-  height: 42px;
-  width: 42px;
-  object-fit: cover;
+  height: 48px;
+  width: auto;
+  object-fit: contain;
   flex-shrink: 0;
-  border-radius: 50%;
+  border-radius: var(--r-sm);
 }
 
 .logo__text {
