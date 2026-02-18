@@ -1,17 +1,16 @@
 import { defineConfig } from 'vite';
 import { resolve } from 'path';
+import { existsSync, mkdirSync, renameSync, unlinkSync } from 'fs';
 
-// Plugin: rewrite clean URLs → .html files
+// Plugin: rewrite clean URLs → .html files (dev server)
 function cleanUrls() {
   return {
     name: 'clean-urls',
     configureServer(server) {
       server.middlewares.use((req, res, next) => {
-        // Skip files with extensions, API calls, etc.
         if (req.url.includes('.') || req.url.startsWith('/@') || req.url.startsWith('/node_modules')) {
           return next();
         }
-        // Rewrite /about → /about.html, /contacts → /contacts.html, etc.
         const cleanPath = req.url.split('?')[0].split('#')[0];
         if (cleanPath !== '/' && !cleanPath.endsWith('/')) {
           req.url = cleanPath + '.html' + (req.url.slice(cleanPath.length) || '');
@@ -22,10 +21,34 @@ function cleanUrls() {
   };
 }
 
+// Plugin: restructure build output for clean URLs on static hosting
+// e.g. dist/about.html → dist/about/index.html
+function cleanUrlsBuild() {
+  return {
+    name: 'clean-urls-build',
+    closeBundle() {
+      const outDir = resolve(__dirname, 'dist');
+      const pages = [
+        'services', 'catalog', 'car', 'admin',
+        'how-we-work', 'about', 'team', 'reviews',
+        'faq', 'contacts', 'privacy'
+      ];
+      for (const page of pages) {
+        const htmlFile = resolve(outDir, `${page}.html`);
+        if (existsSync(htmlFile)) {
+          const dir = resolve(outDir, page);
+          if (!existsSync(dir)) mkdirSync(dir, { recursive: true });
+          renameSync(htmlFile, resolve(dir, 'index.html'));
+        }
+      }
+    },
+  };
+}
+
 export default defineConfig({
   root: '.',
   appType: 'mpa',
-  plugins: [cleanUrls()],
+  plugins: [cleanUrls(), cleanUrlsBuild()],
   build: {
     outDir: 'dist',
     rollupOptions: {
