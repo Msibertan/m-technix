@@ -4656,6 +4656,10 @@ textarea {
   align-items: center;
 }
 
+.bento-card__benefits {
+  border-left: 1px solid var(--c-border);
+}
+
 /* ─── Card Visuals ─── */
 .bento-card__visual {
   width: 100%;
@@ -4742,6 +4746,11 @@ textarea {
 
   .bento-card--wide {
     grid-template-columns: 1fr;
+  }
+
+  .bento-card__benefits {
+    border-left: none;
+    border-top: 1px solid var(--c-border);
   }
 
   .bento-card__visual--sm {
