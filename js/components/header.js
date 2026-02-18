@@ -24,7 +24,7 @@ export function renderHeader() {
   const headerHTML = `
     <div class="container header__inner">
       <a href="/" class="header__logo">
-        <img src="/images/my-logo.png" alt="М-Техникс" class="logo__img" />
+        <img src="/images/my-logo.jpg" alt="М-Техникс" class="logo__img" />
         <span class="logo__text">М-Техникс</span>
       </a>
       <nav class="header__nav" id="nav">

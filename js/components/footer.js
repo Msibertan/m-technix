@@ -8,7 +8,7 @@ export function renderFooter() {
       <div class="footer__grid">
         <div class="footer__brand">
           <a href="/" class="header__logo">
-            <img src="/images/my-logo.png" alt="М-Техникс" class="logo__img" />
+            <img src="/images/my-logo.jpg" alt="М-Техникс" class="logo__img" />
             <span class="logo__text">М-Техникс</span>
           </a>
           <p class="footer__desc">Автопригон из Европы в Россию под ключ. Полное сопровождение от подбора до постановки на учёт.</p>
