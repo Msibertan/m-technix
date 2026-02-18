@@ -2015,8 +2015,12 @@ a.footer__contact:hover .footer__contact-icon {
   }
 
   .footer__grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: var(--s-xl);
+  }
+
+  .footer__brand {
+    grid-column: 1 / -1;
   }
 
   .footer__bottom {
