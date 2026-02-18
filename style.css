@@ -2015,13 +2015,13 @@ a.footer__contact:hover .footer__contact-icon {
   }
 
   .footer__grid {
-    grid-template-columns: 1fr 1fr;
-    gap: var(--s-xl);
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--s-md);
     text-align: center;
   }
 
   .footer__brand {
-    grid-column: 1 / -1;
+    grid-column: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -2033,14 +2033,34 @@ a.footer__contact:hover .footer__contact-icon {
 
   .footer__desc {
     text-align: center;
+    font-size: 0.75rem;
   }
 
   .footer__contact {
     justify-content: center;
+    font-size: 0.75rem;
   }
 
   .footer__socials {
     justify-content: center;
+  }
+
+  .footer__link {
+    font-size: 0.78rem;
+  }
+
+  .footer__heading {
+    font-size: 0.65rem;
+  }
+
+  .footer__contact-icon {
+    width: 26px;
+    height: 26px;
+  }
+
+  .footer__social {
+    width: 36px;
+    height: 36px;
   }
 
   .footer__bottom {
