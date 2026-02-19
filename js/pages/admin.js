@@ -233,7 +233,7 @@ function bindTableActions() {
     // View
     document.querySelectorAll('[data-action="view"]').forEach(btn => {
         btn.addEventListener('click', () => {
-            window.open(`/car.html?slug=${btn.dataset.slug}`, '_blank');
+            window.open(`/car?slug=${btn.dataset.slug}`, '_blank');
         });
     });
 

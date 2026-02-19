@@ -64,7 +64,7 @@ function renderCarCard(car) {
     }
 
     return `
-        <a href="/car.html?slug=${car.slug}" class="car-card car-card--link" data-reveal>
+        <a href="/car?slug=${car.slug}" class="car-card car-card--link" data-reveal>
             <div class="car-card__image">
                 ${getStatusBadge(car.status)}
                 <img src="${img}" alt="${car.title || car.brand + ' ' + car.model}" loading="lazy" 

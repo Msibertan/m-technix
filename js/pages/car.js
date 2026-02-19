@@ -327,7 +327,7 @@ async function loadSimilarCars(car) {
         grid.innerHTML = cars.map(c => {
             const img = c.main_image || (c.images && c.images[0]) || '/images/search-europe.jpg';
             return `
-                <a href="/car.html?slug=${c.slug}" class="car-card car-card--link" data-reveal>
+                <a href="/car?slug=${c.slug}" class="car-card car-card--link" data-reveal>
                     <div class="car-card__image">
                         <img src="${img}" alt="${c.title || c.brand + ' ' + c.model}" loading="lazy"
                              onerror="this.src='/images/search-europe.jpg'" />
