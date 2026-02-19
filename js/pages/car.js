@@ -125,7 +125,7 @@ function renderCar(car) {
                 <nav class="breadcrumbs" data-reveal>
                     <a href="/">Главная</a>
                     <span>/</span>
-                    <a href="/catalog.html">Каталог</a>
+                    <a href="/catalog">Каталог</a>
                     <span>/</span>
                     <span>${car.title || car.brand + ' ' + car.model}</span>
                 </nav>
@@ -176,7 +176,7 @@ function renderCar(car) {
                             `).join('')}
                         </div>
 
-                        <a href="/contacts.html#form" class="btn btn--primary btn--lg car-info__cta">
+                        <a href="/contacts#form" class="btn btn--primary btn--lg car-info__cta">
                             <i data-lucide="message-circle"></i> Оставить заявку
                         </a>
                     </div>
@@ -214,7 +214,7 @@ function renderCar(car) {
                 <div class="cta-banner__inner" data-reveal>
                     <h2 class="cta-banner__title">Не нашли нужный автомобиль?</h2>
                     <p class="cta-banner__text">Мы подберём любой авто под ваш запрос из 15 стран Европы</p>
-                    <a href="/contacts.html#form" class="btn btn--primary btn--lg">Оставить заявку на подбор</a>
+                    <a href="/contacts#form" class="btn btn--primary btn--lg">Оставить заявку на подбор</a>
                 </div>
             </div>
         </section>
@@ -363,7 +363,7 @@ function showError(message) {
                 <i data-lucide="car" style="width:64px;height:64px;color:var(--accent);margin-bottom:1.5rem;"></i>
                 <h2>${message}</h2>
                 <p style="margin:1rem 0 2rem;color:var(--text-muted);">Попробуйте вернуться в каталог</p>
-                <a href="/catalog.html" class="btn btn--primary">Перейти в каталог</a>
+                <a href="/catalog" class="btn btn--primary">Перейти в каталог</a>
             </div>
         </section>
     `;
