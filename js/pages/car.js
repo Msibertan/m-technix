@@ -118,6 +118,8 @@ function renderCar(car) {
     ];
     if (car.is_featured) badges.push('<span class="car-badge car-badge--star"><i data-lucide="star"></i> Избранное</span>');
 
+    const carTitle = car.title || (car.brand + ' ' + car.model);
+
     detail.innerHTML = `
         <!-- Hero breadcrumb -->
         <section class="car-hero">
@@ -176,7 +178,7 @@ function renderCar(car) {
                             `).join('')}
                         </div>
 
-                        <a href="/contacts#form" class="btn btn--primary btn--lg car-info__cta">
+                        <a href="/contacts?car=${encodeURIComponent(carTitle)}&carUrl=${encodeURIComponent('/car?slug=' + car.slug)}#form" class="btn btn--primary btn--lg car-info__cta">
                             <i data-lucide="message-circle"></i> Оставить заявку
                         </a>
                     </div>

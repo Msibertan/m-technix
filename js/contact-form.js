@@ -30,6 +30,15 @@ export function initContactForm() {
     const form = document.getElementById('contactForm');
     if (!form) return;
 
+    // Auto-fill car field from URL params (when coming from car detail page)
+    const urlParams = new URLSearchParams(window.location.search);
+    const carParam = urlParams.get('car');
+    const carUrlParam = urlParams.get('carUrl');
+    const carInput = form.querySelector('#car');
+    if (carParam && carInput) {
+        carInput.value = carParam;
+    }
+
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
@@ -43,11 +52,16 @@ export function initContactForm() {
 
         // Build message
         const now = new Date().toLocaleString('ru-RU', { timeZone: 'Europe/Moscow' });
-        const message = `🚗 <b>Новая заявка с сайта!</b>\n\n`
+        let message = `🚗 <b>Новая заявка с сайта!</b>\n\n`
             + `👤 <b>Имя:</b> ${name}\n`
             + `📞 <b>Телефон:</b> ${phone}\n`
             + `🚘 <b>Автомобиль:</b> ${car}\n`
             + `🕐 <b>Время:</b> ${now}`;
+
+        // Add car link if available
+        if (carUrlParam) {
+            message += `\n🔗 <b>Ссылка:</b> ${window.location.origin}${carUrlParam}`;
+        }
 
         // Show loading
         btn.textContent = 'Отправка...';
