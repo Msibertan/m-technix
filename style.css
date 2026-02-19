@@ -1644,6 +1644,123 @@ textarea {
   margin-top: var(--s-md);
 }
 
+/* ── Form Car Card (auto-fill from car page) ── */
+.form-car-card {
+  display: flex;
+  align-items: center;
+  gap: var(--s-md);
+  background: linear-gradient(135deg, rgba(184, 146, 74, 0.08), rgba(184, 146, 74, 0.03));
+  border: 1px solid rgba(184, 146, 74, 0.25);
+  border-radius: var(--r-lg);
+  padding: var(--s-md);
+  margin-bottom: var(--s-lg);
+  position: relative;
+  animation: formCardSlideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes formCardSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-12px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.form-car-card__img {
+  width: 100px;
+  height: 72px;
+  border-radius: var(--r-md);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.form-car-card__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.form-car-card__info {
+  flex: 1;
+  min-width: 0;
+}
+
+.form-car-card__label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--c-accent);
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.form-car-card__name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--c-dark);
+  text-decoration: none;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color var(--t-base);
+}
+
+.form-car-card__name:hover {
+  color: var(--c-accent);
+}
+
+.form-car-card__specs {
+  font-size: 0.78rem;
+  color: var(--c-text-muted);
+  margin-top: 2px;
+}
+
+.form-car-card__price {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--c-accent);
+  margin-top: 2px;
+}
+
+.form-car-card__remove {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--c-text-muted);
+  padding: 4px;
+  border-radius: 50%;
+  transition: all var(--t-base);
+  line-height: 0;
+}
+
+.form-car-card__remove:hover {
+  color: var(--c-dark);
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.form-car-card__remove svg {
+  width: 16px;
+  height: 16px;
+}
+
+@media (max-width: 480px) {
+  .form-car-card__img {
+    width: 72px;
+    height: 56px;
+  }
+
+  .form-car-card__name {
+    font-size: 0.85rem;
+  }
+}
 
 /* ════════════════════════════════════════════
    FOOTER

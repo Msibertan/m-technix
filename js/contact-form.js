@@ -2,8 +2,15 @@
    Contact Form Handler — Telegram Bot
    ═══════════════════════════════════════════ */
 
+import { supabaseGet } from './supabase.js';
+
 const TG_TOKEN = import.meta.env.VITE_TG_BOT_TOKEN;
 const CHAT_IDS = (import.meta.env.VITE_TG_CHAT_IDS || '').split(',').filter(Boolean);
+
+function formatPrice(price) {
+    if (!price) return '—';
+    return new Intl.NumberFormat('ru-RU').format(price) + ' ₽';
+}
 
 async function sendToTelegram(text) {
     const url = `https://api.telegram.org/bot${TG_TOKEN}/sendMessage`;
@@ -26,17 +33,84 @@ async function sendToTelegram(text) {
     if (!anySuccess) throw new Error('Не удалось отправить сообщение');
 }
 
-export function initContactForm() {
+/**
+ * Render a mini car card above the form
+ */
+function renderCarCard(car, form) {
+    const carTitle = car.title || (car.brand + ' ' + car.model);
+    const img = car.main_image || (car.images && car.images[0]) || '/images/search-europe.jpg';
+    const carUrl = `/car?slug=${car.slug}`;
+
+    const specs = [];
+    if (car.year) specs.push(car.year);
+    if (car.mileage) specs.push(new Intl.NumberFormat('ru-RU').format(car.mileage) + ' км');
+    if (car.fuel_type) specs.push(car.fuel_type);
+
+    const cardHTML = `
+        <div class="form-car-card">
+            <div class="form-car-card__img">
+                <img src="${img}" alt="${carTitle}" onerror="this.src='/images/search-europe.jpg'" />
+            </div>
+            <div class="form-car-card__info">
+                <div class="form-car-card__label">Вы интересуетесь</div>
+                <a href="${carUrl}" class="form-car-card__name">${carTitle}</a>
+                ${specs.length ? `<div class="form-car-card__specs">${specs.join(' · ')}</div>` : ''}
+                ${car.price ? `<div class="form-car-card__price">${formatPrice(car.price)}</div>` : ''}
+            </div>
+            <button type="button" class="form-car-card__remove" title="Убрать" aria-label="Убрать авто">
+                <i data-lucide="x"></i>
+            </button>
+        </div>
+    `;
+
+    // Insert before the form
+    const container = document.createElement('div');
+    container.id = 'formCarCard';
+    container.innerHTML = cardHTML;
+    form.parentNode.insertBefore(container, form);
+
+    // Remove button
+    container.querySelector('.form-car-card__remove').addEventListener('click', () => {
+        container.remove();
+        const carInput = form.querySelector('#car');
+        if (carInput) {
+            carInput.value = '';
+            carInput.closest('.form__group').style.display = '';
+        }
+    });
+
+    // Init lucide icons for the X button
+    if (window.lucide) lucide.createIcons();
+
+    return { carTitle, carUrl };
+}
+
+export async function initContactForm() {
     const form = document.getElementById('contactForm');
     if (!form) return;
 
-    // Auto-fill car field from URL params (when coming from car detail page)
+    // Check if coming from a car detail page
     const urlParams = new URLSearchParams(window.location.search);
-    const carParam = urlParams.get('car');
-    const carUrlParam = urlParams.get('carUrl');
-    const carInput = form.querySelector('#car');
-    if (carParam && carInput) {
-        carInput.value = carParam;
+    const carSlug = urlParams.get('carSlug');
+    let carData = null;
+
+    if (carSlug) {
+        try {
+            const cars = await supabaseGet('cars', { slug: `eq.${carSlug}` });
+            if (cars && cars.length > 0) {
+                carData = cars[0];
+                const { carTitle } = renderCarCard(carData, form);
+
+                // Auto-fill and hide the car text input
+                const carInput = form.querySelector('#car');
+                if (carInput) {
+                    carInput.value = carTitle;
+                    carInput.closest('.form__group').style.display = 'none';
+                }
+            }
+        } catch (err) {
+            console.error('Error loading car for form:', err);
+        }
     }
 
     form.addEventListener('submit', async (e) => {
@@ -59,8 +133,8 @@ export function initContactForm() {
             + `🕐 <b>Время:</b> ${now}`;
 
         // Add car link if available
-        if (carUrlParam) {
-            message += `\n🔗 <b>Ссылка:</b> ${window.location.origin}${carUrlParam}`;
+        if (carData) {
+            message += `\n🔗 <b>Ссылка:</b> ${window.location.origin}/car?slug=${carData.slug}`;
         }
 
         // Show loading
@@ -72,6 +146,10 @@ export function initContactForm() {
             btn.textContent = 'Отправлено ✓';
             btn.style.background = 'var(--c-accent)';
             form.reset();
+
+            // Remove car card after successful submit
+            const cardEl = document.getElementById('formCarCard');
+            if (cardEl) cardEl.remove();
 
             setTimeout(() => {
                 btn.textContent = originalText;

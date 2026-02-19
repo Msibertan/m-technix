@@ -178,7 +178,7 @@ function renderCar(car) {
                             `).join('')}
                         </div>
 
-                        <a href="/contacts?car=${encodeURIComponent(carTitle)}&carUrl=${encodeURIComponent('/car?slug=' + car.slug)}#form" class="btn btn--primary btn--lg car-info__cta">
+                        <a href="/contacts?carSlug=${car.slug}#form" class="btn btn--primary btn--lg car-info__cta">
                             <i data-lucide="message-circle"></i> Оставить заявку
                         </a>
                     </div>
