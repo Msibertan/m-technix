@@ -18,7 +18,7 @@ export function renderFooter() {
           </a>
           <p class="footer__desc">Автопригон из Европы в Россию под ключ. Полное сопровождение от подбора до постановки на учёт.</p>
           <div class="footer__socials">
-            <a href="https://wa.me/79390349133" target="_blank" rel="noopener" class="footer__social footer__social--wa" aria-label="WhatsApp">
+            <a href="https://wa.me/74951855740" target="_blank" rel="noopener" class="footer__social footer__social--wa" aria-label="WhatsApp">
               <i data-lucide="message-circle"></i>
             </a>
             <a href="https://t.me/OOO_M_Technics" target="_blank" rel="noopener" class="footer__social footer__social--tg" aria-label="Telegram">
@@ -48,9 +48,9 @@ export function renderFooter() {
         <!-- Contact info -->
         <div class="footer__col">
           <h4 class="footer__heading">Контакты</h4>
-          <a href="tel:+79390349133" class="footer__contact">
+          <a href="tel:+74951855740" class="footer__contact">
             <span class="footer__contact-icon"><i data-lucide="phone"></i></span>
-            <span>+7 939 034-91-33</span>
+            <span>+7 495 185-57-40</span>
           </a>
           <a href="mailto:mtehnics@mail.ru" class="footer__contact">
             <span class="footer__contact-icon"><i data-lucide="mail"></i></span>
